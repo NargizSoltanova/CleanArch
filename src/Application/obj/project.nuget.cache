@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+aXYLzrm7iVS1RlfXUw+C6A+tagez0kkx3Gkr7WtjQZ+898TO7jDXN5d9g8reJMECai9yry9oP86ajvm9DLmyQ==",
+  "dgSpecHash": "PPHsxLQoP1A2VecdRbr0CAO5VRD5q1b5yFxCy8ybmtVAS+CZ1cXlJJNCLs/wPzaxPUrB1gbFiKxCRdDHuAK7fQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\User\\OneDrive\\Masaüstü\\practise\\src\\Application\\Application.csproj",
   "expectedPackageFiles": [
@@ -10,8 +10,9 @@
     "C:\\Users\\User\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
-    "C:\\Users\\User\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
-    "C:\\Users\\User\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.0.0\\mediatr.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.20\\microsoft.aspnetcore.cryptography.internal.6.0.20.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.20\\microsoft.aspnetcore.cryptography.keyderivation.6.0.20.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.http\\2.2.2\\microsoft.aspnetcore.http.2.2.2.nupkg.sha512",

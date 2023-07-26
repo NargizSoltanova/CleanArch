@@ -16,24 +16,24 @@ public record CreateProductCommand() : IRequest<IDataResult<CreateProductCommand
     public DateTime CreatedDate { get; set; }
     public DateTime? ModifiedDate { get; set; }
     public string? ModifiedBy { get; set; }
-}
 
-public class CreateProductHandler : IRequestHandler<CreateProductCommand, IDataResult<CreateProductCommand>>
-{
-    private readonly IAppDbContext _context;
-    private readonly IMapper _mapper;
-
-    public CreateProductHandler(IAppDbContext context, IMapper mapper)
+    public class CreateProductHandler : IRequestHandler<CreateProductCommand, IDataResult<CreateProductCommand>>
     {
-        _context = context;
-        _mapper = mapper;
-    }
+        private readonly IAppDbContext _context;
+        private readonly IMapper _mapper;
 
-    public async Task<IDataResult<CreateProductCommand>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
-    {
-        Product product = _mapper.Map<Product>(request);
-        await _context.Products.AddAsync(product);
-        await _context.SaveChangesAsync(cancellationToken);
-        return new SuccessDataResult<CreateProductCommand>(request, "Added");
+        public CreateProductHandler(IAppDbContext context, IMapper mapper)
+        {
+            _context = context;
+            _mapper = mapper;
+        }
+
+        public async Task<IDataResult<CreateProductCommand>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+        {
+            Product product = _mapper.Map<Product>(request);
+            await _context.Products.AddAsync(product);
+            await _context.SaveChangesAsync(cancellationToken);
+            return new SuccessDataResult<CreateProductCommand>(request, "Added");
+        }
     }
 }

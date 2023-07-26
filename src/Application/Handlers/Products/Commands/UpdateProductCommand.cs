@@ -12,8 +12,6 @@ public record UpdateProductCommand(int Id) : IRequest<IDataResult<UpdateProductC
     public decimal Price { get; set; }
     public int Count { get; set; }
     public bool IsDeleted { get; set; }
-    public string CreatedBy { get; set; } = null!;
-    public DateTime CreatedDate { get; set; }
     public DateTime? ModifiedDate { get; set; }
     public string? ModifiedBy { get; set; }
     public class UpdateProductHandler : IRequestHandler<UpdateProductCommand, IDataResult<UpdateProductCommand>>
@@ -29,6 +27,12 @@ public record UpdateProductCommand(int Id) : IRequest<IDataResult<UpdateProductC
         {
             Product exists = await _context.Products.FirstOrDefaultAsync(x => x.Id == request.Id);
             if (exists == null) return new ErrorDataResult<UpdateProductCommand>("NotFound");
+            exists.Name = request.Name;
+            exists.Price = request.Price;
+            exists.Count = request.Count;
+            exists.IsDeleted = request.IsDeleted;
+            exists.ModifiedDate = request.ModifiedDate;
+            exists.ModifiedBy = request.ModifiedBy;
             _context.Products.Update(exists);
             await _context.SaveChangesAsync(cancellationToken);
             return new SuccessDataResult<UpdateProductCommand>(request, "Updated");

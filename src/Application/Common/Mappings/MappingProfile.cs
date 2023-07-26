@@ -11,7 +11,6 @@ public class MappingProfile : Profile
     {
         CreateMap<CreateProductCommand, Product>();
         CreateMap<Product, CreateProductCommand>();
-        CreateMap<IEnumerable<GetProductsQuery>, IEnumerable<Product>>();
-        CreateMap<IEnumerable<Product>, IEnumerable<GetProductsQuery>>();
+        CreateMap<Product, GetProductsQuery>().ReverseMap();
     }
 }

@@ -8,6 +8,15 @@ namespace practice.Application.Handlers.Products.Queries;
 
 public class GetProductsQuery : IRequest<IDataResult<IEnumerable<GetProductsQuery>>>
 {
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+    public int Count { get; set; }
+    public bool IsDeleted { get; set; }
+    public string CreatedBy { get; set; } = null!;
+    public DateTime CreatedDate { get; set; }
+    public DateTime? ModifiedDate { get; set; }
+    public string? ModifiedBy { get; set; }
     public class GetProductsQueryHandler : IRequestHandler<GetProductsQuery, IDataResult<IEnumerable<GetProductsQuery>>>
     {
         private readonly IAppDbContext _context;
