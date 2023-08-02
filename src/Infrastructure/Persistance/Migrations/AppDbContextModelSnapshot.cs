@@ -22,39 +22,6 @@ namespace practice.Infrastructure.Persistance.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
-
-                    b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityRole");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
@@ -252,6 +219,47 @@ namespace practice.Infrastructure.Persistance.Migrations
                     b.ToTable("Teams");
                 });
 
+            modelBuilder.Entity("practice.Domain.Identity.AppRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "0e18c59c-ba0a-4617-adf5-d12fd9fa26e4",
+                            ConcurrencyStamp = "981bbd5f-7d50-4585-86da-012a67db398b",
+                            Name = "admin"
+                        },
+                        new
+                        {
+                            Id = "c4c17978-82ac-4687-896e-72c72ce9c8b5",
+                            ConcurrencyStamp = "dc572b45-f0f6-4668-95bf-9c34ec8290fc",
+                            Name = "member"
+                        });
+                });
+
             modelBuilder.Entity("practice.Domain.Identity.AppUser", b =>
                 {
                     b.Property<string>("Id")
@@ -321,30 +329,9 @@ namespace practice.Infrastructure.Persistance.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("practice.Domain.Identity.AppRole", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityRole");
-
-                    b.HasDiscriminator().HasValue("AppRole");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "70792c2a-1cc2-40c7-88cd-9101831a16a7",
-                            ConcurrencyStamp = "8d3d7a6b-af0b-46a4-b179-7cd9fa9899d5",
-                            Name = "admin"
-                        },
-                        new
-                        {
-                            Id = "118316fd-7794-4ad2-b30b-2ca8801bf505",
-                            ConcurrencyStamp = "aed2d746-f202-4932-a63b-c7e052069aa5",
-                            Name = "member"
-                        });
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("practice.Domain.Identity.AppRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -371,7 +358,7 @@ namespace practice.Infrastructure.Persistance.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("practice.Domain.Identity.AppRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
