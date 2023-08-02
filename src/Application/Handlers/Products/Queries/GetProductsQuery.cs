@@ -30,8 +30,7 @@ public class GetProductsQuery : IRequest<IDataResult<IEnumerable<GetProductsQuer
 
         public async Task<IDataResult<IEnumerable<GetProductsQuery>>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
-            return new SuccessDataResult<IEnumerable<GetProductsQuery>>(
-                _mapper.Map<IEnumerable<GetProductsQuery>>(await _context.Products.ToListAsync()));
+            return new SuccessDataResult<IEnumerable<GetProductsQuery>>(_mapper.Map<IEnumerable<GetProductsQuery>>(await _context.Products.ToListAsync()));
         }
     }
 }

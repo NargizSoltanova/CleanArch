@@ -7,13 +7,15 @@ using System.Reflection;
 
 namespace practice.Infrastructure.Persistance;
 
-public class AppDbContext : IdentityDbContext<AppUser>, IAppDbContext
+public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>, IAppDbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
     }
 
     public DbSet<Product> Products => Set<Product>();
+
+    public DbSet<Team> Teams => Set<Team>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

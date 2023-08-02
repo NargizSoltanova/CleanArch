@@ -209,6 +209,49 @@ namespace practice.Infrastructure.Persistance.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("practice.Domain.Entities.Team", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Fullname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Profession")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("Salary")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Teams");
+                });
+
             modelBuilder.Entity("practice.Domain.Identity.AppUser", b =>
                 {
                     b.Property<string>("Id")
@@ -287,14 +330,14 @@ namespace practice.Infrastructure.Persistance.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "91f7a6ee-e99c-4bda-b843-538b20f24c28",
-                            ConcurrencyStamp = "63e0734c-a970-4f02-9415-60bafd9f6c5a",
+                            Id = "70792c2a-1cc2-40c7-88cd-9101831a16a7",
+                            ConcurrencyStamp = "8d3d7a6b-af0b-46a4-b179-7cd9fa9899d5",
                             Name = "admin"
                         },
                         new
                         {
-                            Id = "2bd60b6e-e0bb-4f7a-8f27-921247c72a57",
-                            ConcurrencyStamp = "82f76a13-f21d-4f4e-9080-99a0f585a2a8",
+                            Id = "118316fd-7794-4ad2-b30b-2ca8801bf505",
+                            ConcurrencyStamp = "aed2d746-f202-4932-a63b-c7e052069aa5",
                             Name = "member"
                         });
                 });

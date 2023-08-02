@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using practice.Application.Common.Interfaces;
+﻿using Microsoft.AspNetCore.Mvc;
 using practice.Application.Handlers.Products.Commands;
 using practice.Application.Handlers.Products.Queries;
 using practice.WebApi.Controllers.Base;
@@ -11,22 +9,9 @@ namespace practice.WebApi.Controllers.V1
     [ApiController]
     public class ProductsController : BaseApiController
     {
-        private readonly IAppDbContext _context;
-        private readonly IMapper _mapper;
-
-        public ProductsController(IAppDbContext context, IMapper mapper)
-        {
-            _context = context;
-            _mapper = mapper;
-        }
-
         [HttpPost]
         public async Task<IActionResult> Post(CreateProductCommand createProductCommand)
         {
-            //Product product = _mapper.Map<Product>(createProductCommand);
-            //await _context.Products.AddAsync(product);
-            //await _context.SaveChangesAsync(cancellationToken);
-            //return Ok();
             return GetResponseOnlyResultData(await Mediator.Send(createProductCommand));
         }
 
