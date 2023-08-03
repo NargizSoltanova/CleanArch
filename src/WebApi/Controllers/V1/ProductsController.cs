@@ -26,7 +26,6 @@ namespace practice.WebApi.Controllers.V1
         {
             return GetResponseOnlyResultData(await Mediator.Send(updateProductCommand));
         }
-
         [HttpGet]
         public async Task<IActionResult> GetList()
         {
