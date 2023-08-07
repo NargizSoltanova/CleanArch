@@ -25,6 +25,7 @@ public static class ConfigureService
             options.SignIn.RequireConfirmedEmail = true;
         }).AddDefaultTokenProviders()
           .AddEntityFrameworkStores<AppDbContext>();
+
         services.AddScoped<IAppDbContext>(provider => provider.GetRequiredService<AppDbContext>());
 
         services.AddScoped<AppDbContextInitialiser>();

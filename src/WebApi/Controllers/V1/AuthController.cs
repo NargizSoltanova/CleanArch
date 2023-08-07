@@ -48,6 +48,7 @@ public class AuthController : ControllerBase
 
         var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
         var url = Url.Action("ConfirmEmail", "Auth", new { userId = user.Id, token = token }, Request.Scheme);
+
         ConnectionFactory factory = new ConnectionFactory();
         factory.Uri = new Uri("amqps://qwmnpfdy:Lkfkc8vt-zaX8ao1deKwpzxAeGE5eKxN@rat.rmq2.cloudamqp.com/qwmnpfdy");
         using (IConnection connection = factory.CreateConnection())
@@ -61,7 +62,7 @@ public class AuthController : ControllerBase
             }
         }
         //var result2 = await _userManager.AddToRoleAsync(user, "member");
-        //if (!result2.Succeeded)
+        //if (!result2.Succeeded)  4242475
         //{
         //    return BadRequest(new
         //    {
@@ -92,6 +93,7 @@ public class AuthController : ControllerBase
         if (!user.EmailConfirmed) return BadRequest("Confirm your email");
         var result = await _userManager.CheckPasswordAsync(user, loginDto.Password);
         if (!result) return Unauthorized();
+
         double date = double.Parse(_configuration["JWT:expireDate"]);
         DateTime expires = DateTime.UtcNow.AddMinutes(date);
 
