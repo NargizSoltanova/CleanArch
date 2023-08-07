@@ -155,3 +155,5 @@ C:\Users\User\OneDrive\Masaüstü\practise\src\UnitTests\obj\Debug\net6.0\refint
 C:\Users\User\OneDrive\Masaüstü\practise\src\UnitTests\obj\Debug\net6.0\UnitTests.pdb
 C:\Users\User\OneDrive\Masaüstü\practise\src\UnitTests\obj\Debug\net6.0\UnitTests.genruntimeconfig.cache
 C:\Users\User\OneDrive\Masaüstü\practise\src\UnitTests\obj\Debug\net6.0\ref\UnitTests.dll
+C:\Users\User\OneDrive\Masaüstü\practise\src\UnitTests\bin\Debug\net6.0\Castle.Core.dll
+C:\Users\User\OneDrive\Masaüstü\practise\src\UnitTests\bin\Debug\net6.0\Moq.dll
