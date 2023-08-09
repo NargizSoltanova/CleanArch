@@ -22,6 +22,7 @@ public class GetProductsQuery : IRequest<IDataResult<IEnumerable<GetProductsQuer
         private readonly IAppDbContext _context;
         private readonly IMapper _mapper;
 
+
         public GetProductsQueryHandler(IAppDbContext context, IMapper mapper)
         {
             _context = context;
